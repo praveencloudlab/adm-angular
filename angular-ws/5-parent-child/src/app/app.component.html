@@ -1,0 +1,11 @@
+<div>
+<h1>App Component</h1> 
+<h2>APP::Message: {{chilMsg}}</h2>
+<hr/>
+
+
+<button (click)="f1('Good Morning')">Good Morning</button>
+
+<app-greet [parentMsg]="msg" (messageFromChild)="f3($event)"></app-greet>
+
+</div>
