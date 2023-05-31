@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>Custom Pipes</h1> <hr/>
+
+  <input [(ngModel)]="filterText" placeholder="Filter Table"/>
+  <br/><br/>
+  <table class="table table-bordered">
+  <thead>
+    <tr>
+
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Gender</th>
+      <th>Phone Number</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let emp of emps | filter:filterText">
+        <td>{{emp.id}}</td>
+        <td>{{emp.name}}</td>
+        <td>{{emp.email}}</td>
+        <td>{{emp.gender}}</td>
+        <td>{{emp.phone}}</td>
+    </tr>
+
+  </tbody>
+  </table>
+
+</div>
+

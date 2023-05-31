@@ -1,0 +1,30 @@
+<div class='container'>
+  <h1>Counter APP</h1> <hr/>
+
+  <div class='card'>
+    <div class='card-header'><h4>Counter APP</h4></div>
+     <div class='card-body'>
+      <div class='card-text'>
+        
+        <div class='row'>
+          <div class="col-4 mt-2" *ngFor="let number of numbers">
+            <div class='card card-body text-center'>
+                  <app-buttons (totalCount)="calculateTotalHits($event)" [btnLabel]=number></app-buttons>
+            </div>
+            
+          </div>
+        </div>
+
+
+      </div>
+     </div>
+     <div class='card-footer text-center'>
+        <h1>Total Hits: {{totalHitsCount}}</h1>
+     </div>
+  
+  </div>
+
+
+
+
+</div>
