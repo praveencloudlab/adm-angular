@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>Anguar Forms</h1> <hr/>
+
+  <form [formGroup]="prodForm" (ngSubmit)="handleSubmit()">
+    <div class="form-group">
+      <label for="name">Product Name</label>
+      <input type="text" formControlName="name"  />
+      <div *ngIf="fc()['name']?.invalid && (fc()['name']?.dirty || fc()['name']?.touched)">
+          <div *ngIf="fc()['name']?.errors?.['required']">Name is required.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="text" formControlName="price"  />
+      <div *ngIf="fc()['price']?.invalid && (fc()['price']?.dirty || fc()['price']?.touched)">
+        <div *ngIf="fc()['price']?.errors?.['required']">Name is required.</div>
+    </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea type="text" formControlName="description"></textarea>
+    </div>
+
+    <div>
+      <button>Save</button>
+    </div>
+  </form>
+
+</div>

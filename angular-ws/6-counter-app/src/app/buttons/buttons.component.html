@@ -1,3 +1,9 @@
-<span><h2>Count: {{btnHits}}</h2></span>
-<hr/>
-<button (click)="calculateHitsCount()"><h2>{{btnLabel}}</h2></button>
+<div class="card card-body  text-center">
+    <span><h2>Count: {{btnHits}}</h2></span>
+    <hr/>
+    <button class="btn" [disabled]="btnLabel < 0" [ngClass]="{'btn-danger': btnLabel < 0, 'btn-primary': btnLabel >= 0}"  (click)="calculateHitsCount()"><h2>{{btnLabel}}</h2></button> 
+</div>
+
+<div>
+
+</div>

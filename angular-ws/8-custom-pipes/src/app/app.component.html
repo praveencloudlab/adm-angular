@@ -1,8 +1,14 @@
 <div class="container">
   <h1>Custom Pipes</h1> <hr/>
-
+   <!--<input [(ngModel)]="filterText" placeholder="Filter Table" (keyup)="applyFilter()"/>-->
+  <select (change)="setColumn($event)">
+    <option *ngFor="let column of jsonColumns" [value]="column">
+      {{column}}</option>
+  </select>
+  <br/>
   <input [(ngModel)]="filterText" placeholder="Filter Table"/>
   <br/><br/>
+
   <table class="table table-bordered">
   <thead>
     <tr>
@@ -16,7 +22,8 @@
   </thead>
 
   <tbody>
-    <tr *ngFor="let emp of emps | filter:filterText">
+    <tr *ngFor="let emp of emps | filter:dynamicFilterText:filterText">
+    <!--<tr *ngFor="let emp of filterPeople">-->
         <td>{{emp.id}}</td>
         <td>{{emp.name}}</td>
         <td>{{emp.email}}</td>

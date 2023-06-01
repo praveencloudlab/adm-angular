@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": 1024,
+      "name": "Pen",
+      "price": 87,
+      "description": "red Ink"
+    },
+    {
+      "id": 1,
+      "name": "Laptop",
+      "price": "89000",
+      "description": "Dell"
+    },
+    {
+      "id": 1025,
+      "name": "Book",
+      "price": "87",
+      "description": "Java"
+    },
+    {
+      "id": 1026,
+      "name": "Mouse",
+      "price": "988",
+      "description": "Wireless"
+    }
+  ]
+}
