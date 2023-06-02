@@ -17,7 +17,9 @@ export class AppComponent implements OnInit {
       {
        name:['',[Validators.required]],
        price:new FormControl('',[Validators.required]),
-       description:new FormControl()
+       description:new FormControl(),
+       categoryName:['',[Validators.required]],
+       brandName:['',[Validators.required]]
       });
   }
 
