@@ -1,0 +1,42 @@
+<div class="col-12 col-md-5">
+
+    <form [formGroup]="productForm" (ngSubmit)="handleSubmit()">
+        <div class="mb-3">
+            <label>Product ID</label>
+            <input name="productId" formControlName="product_id" class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+            <label>Product Title</label>
+            <input  formControlName="product_title" class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+            <label>Product Description</label>
+            <textarea formControlName="description" class="form-control"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label>keywords</label>
+            <textarea formControlName="keywords" class="form-control"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label>Rating</label>
+            <input  formControlName="rating" class="form-control"/>
+        </div>
+       
+        <div class="mb-3 text-center">
+            <button class="btn btn-primary btn-space">Save</button>
+            <button type="reset" class="btn btn-warning btn-space">Reset</button>
+            <button type="button" class="btn btn-danger btn-space">Cancel</button>
+
+
+        </div>
+
+
+
+    </form>
+
+
+</div>
