@@ -12,7 +12,19 @@ export class ProductsService {
 
   constructor(private http:HttpClient) { }
 
+  getCategories(){
+    console.log(this.baseUrl+"/categories");
+    return this.http.get(this.baseUrl+"/categories");
+  }
+
+  getBrandsBycategoryId(categoryId:any){
+    console.log(this.baseUrl+`/categories/${categoryId}`);
+    
+    return this.http.get(this.baseUrl+`/categories/${categoryId}`)
+  }
+
   saveProduct(product: Product) {
+    return this.http.post(this.baseUrl, product);
   }
 
   listProducts()  {

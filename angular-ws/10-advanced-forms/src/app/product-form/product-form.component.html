@@ -25,18 +25,43 @@
             <label>Rating</label>
             <input  formControlName="rating" class="form-control"/>
         </div>
+
+        <div class="mb-3">
+            <label>Category Title</label>
+            <select class="form-select" name="categoryId" (change)="getCategoryId($event)">
+                <option value={{cat.categoryId}} *ngFor="let cat of categories">{{cat.categoryTitle}}</option>
+            </select>
+        </div>
+
+        <div class="mb-3" *ngIf="brands && brands.brands">
+            <label>Brand Title</label>
+            <select class="form-select" formControlName="brandTitle">
+                <option *ngFor="let brand of brands.brands" [value]="brand.brandTitle">{{brand.brandTitle}}</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label>Price</label>
+            <input  formControlName="price" class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+            <label>Stock</label>
+            <input  formControlName="stock" class="form-control"/>
+        </div>
        
         <div class="mb-3 text-center">
             <button class="btn btn-primary btn-space">Save</button>
             <button type="reset" class="btn btn-warning btn-space">Reset</button>
             <button type="button" class="btn btn-danger btn-space">Cancel</button>
-
-
         </div>
 
 
 
     </form>
+
+    <hr/>
+
 
 
 </div>
