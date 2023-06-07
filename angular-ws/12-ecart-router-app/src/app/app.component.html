@@ -1,0 +1,32 @@
+<div class="container">
+
+  <div class="alert alert-info text-center"><h1>ecart APP</h1></div>
+  <hr/>
+
+  <div class="row">
+    <div class="col-2">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/product-list">Display Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/add-product">Add Product</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/cart">Cart</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/checkout">Checkout</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-10">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+</div>

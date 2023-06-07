@@ -1,0 +1,66 @@
+Routers
+===========
+We use routers in angular to create SPA (Single page application) development.
+Navigating all components with in the same page with out refreshing the page is called SPA application development. this can be wenabled using routing concept in angular
+
+Steps
+=======
+
+1. create all components needed to your application. ex(home,about,contact .. etc)
+ng generate component home
+ng generate component about
+ng generate component contact
+
+2. craete app-routing-module.ts  file. This is auto generated file, incase if you choose add routers module at the time of app generation
+
+app-routing-module.ts
+--------------------------
+const routes: Routes = [
+  {path:'home',component:HomeComponent},
+  {path:'about',component:AboutComponent},
+  {path:'contact',component:ContactComponent},
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+
+export class AppRoutingModule {}
+
+3. add path values of Routes objects in the home component or Dashboard or
+   AppComponent of your application using routerLink option. ex
+
+   app.component.ts
+   ------------------
+   <div>
+    <a routerLink="/home">Home</a>
+  </div>
+
+
+  <div>
+    <a routerLink="/about">About US</a>
+  </div>
+
+  <div>
+    <a routerLink="/contact">Contact US</a>
+  </div>
+
+  <hr/>
+  <router-outlet></router-outlet>
+
+ note: routerLink value must be name of path value inside Routers path object of app-routing-module.ts file
+
+ note: <router-outlet></router-outlet> displays component content when you click on any of aboveb links in the routerLink hyper links
+
+
+
+
+
+
+
+
+
+
+
+ 

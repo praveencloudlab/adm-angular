@@ -1,0 +1,40 @@
+<div class="col-6">
+    <form [formGroup]="productForm" (ngSubmit)="handleSubmit()">
+        <div class="form-group">
+            <label class="form-control-label" for="productName">Product Name</label>
+            <input type="text" class="form-control" id="productName" formControlName="productTitle"/>               
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" for="description">Description</label>
+            <textarea type="text" class="form-control" id="productName" formControlName="description"></textarea>               
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" for="keywords">keywords</label>
+            <textarea type="text" class="form-control" id="productName" formControlName="keywords"></textarea>               
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" for="rating">Rating</label>
+            <input type="text" class="form-control" id="productName" formControlName="rating"/>               
+        </div>
+
+        <div formGroupName="stock">
+            <label class="form-control-label" for="stock">Stock</label>
+            <input type="text" class="form-control"  formControlName="stock"/>               
+        </div>
+
+        <div formGroupName="price">
+            <label class="form-control-label" for="price">Price</label>
+            <input type="text" class="form-control"  formControlName="price"/>               
+        </div>
+
+        <div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+        
+
+    </form>
+</div>

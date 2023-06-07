@@ -1,0 +1,27 @@
+<div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#ID</th>
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Keywords</th>
+                <th>Rating</th>
+                <th>Price</th>
+                <th>Stock</th>
+            </tr>
+        </thead>
+    
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td>{{product.productId}}</td>
+            <td>{{product.productTitle}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.keywords}}</td>
+            <td>{{product.rating}}</td>
+            <td>{{product.price.price}}</td>
+            <td>{{product.stock.stock}}</td>
+        </tr>
+    </tbody>
+</table>
+</div>

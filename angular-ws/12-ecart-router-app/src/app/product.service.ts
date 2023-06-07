@@ -1,0 +1,129 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ProductService {
+  constructor(private http:HttpClient) { }
+
+  private apiUrl='http://localhost:8080/api/products';
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  }
+
+  //get all products
+  getProducts() {
+    return this.http.get(this.apiUrl);
+  }
+
+  //get product by id
+  getProduct(id:number) {
+    return this.http.get(`${this.apiUrl}/${id}`);
+  }
+  //create product
+  createProduct(product:any) {
+    return this.http.post(this.apiUrl, product,this.httpOptions);
+  }
+  //update product
+  updateProduct(id:number, product:any) {
+    return this.http.put(`${this.apiUrl}/${id}`, product,this.httpOptions);
+  }
+  //delete product
+  deleteProduct(id:number) {
+    return this.http.delete(`${this.apiUrl}/${id}`,this.httpOptions);
+  }
+  //search product
+  searchProduct(search:string) {
+    return this.http.get(`${this.apiUrl}?search=${search}`);
+  }
+  //search product by category
+  searchProductByCategory(category:string) {
+    return this.http.get(`${this.apiUrl}?category=${category}`);
+  }
+  //search product by brand
+  searchProductByBrand(brand:string) {
+    return this.http.get(`${this.apiUrl}?brand=${brand}`);
+  }
+  //search product by price
+  searchProductByPrice(price:number) {
+    return this.http.get(`${this.apiUrl}?price=${price}`);
+  }
+  //search product by rating
+  searchProductByRating(rating:number) {
+    return this.http.get(`${this.apiUrl}?rating=${rating}`);
+  }
+
+  //get all categories
+  getCategories() {
+    return this.http.get(`${this.apiUrl}/categories`);
+  }
+  //get all brands
+  getBrands() {
+    return this.http.get(`${this.apiUrl}/brands`);
+  }
+  // add to cart
+  addToCart(id:number) {
+    return this.http.post(`${this.apiUrl}/cart/${id}`,null);
+  }
+  // remove from cart
+  removeFromCart(id:number) {
+    return this.http.delete(`${this.apiUrl}/cart/${id}`);
+  }
+  //get cart
+  getCart() {
+    return this.http.get(`${this.apiUrl}/cart`);
+  }
+  //get cart items
+  getCartItems() {
+    return this.http.get(`${this.apiUrl}/cart/items`);
+  }
+  //update cart
+  updateCart(id:number) {
+    return this.http.put(`${this.apiUrl}/cart/${id}`,null);
+  }
+  //clear cart
+  clearCart() {
+    return this.http.delete(`${this.apiUrl}/cart`);
+  }
+  // implement checkout
+  checkout(id:number) {
+    return this.http.post(`${this.apiUrl}/checkout/${id}`,null);
+  }
+  //get checkout
+  getCheckout() {
+    return this.http.get(`${this.apiUrl}/checkout`);
+  }
+  //get checkout items
+  getCheckoutItems() {
+    return this.http.get(`${this.apiUrl}/checkout/items`);
+  }
+  //update checkout
+  updateCheckout(id:number) {
+    return this.http.put(`${this.apiUrl}/checkout/${id}`,null);
+  }
+  //clear checkout
+  clearCheckout() {
+    return this.http.delete(`${this.apiUrl}/checkout`);
+  }
+  //get cart total
+  getCartTotal() {
+    return this.http.get(`${this.apiUrl}/cart/total`);
+  }
+  //get checkout total
+  getCheckoutTotal() {
+    return this.http.get(`${this.apiUrl}/checkout/total`);
+  }
+  //update cart total
+  updateCartTotal(total:number) {
+    return this.http.put(`${this.apiUrl}/cart/total`,total);
+  }
+  //update checkout total
+  updateCheckoutTotal(total:number) {
+    return this.http.put(`${this.apiUrl}/checkout/total`,total);
+  }
+  
+  
+}
