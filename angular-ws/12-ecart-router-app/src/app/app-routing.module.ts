@@ -12,6 +12,8 @@ const routes: Routes = [
   { path:'cart',component:CartComponent },
   { path:'checkout',component:CheckoutComponent },
   { path:'add-product',component:ProductformComponent },
+  { path:'add-product/edit/:id',component:ProductformComponent}
+
 ];
 
 @NgModule({

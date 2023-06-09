@@ -9,6 +9,7 @@
                 <th>Rating</th>
                 <th>Price</th>
                 <th>Stock</th>
+                <th>op1</th>
             </tr>
         </thead>
     
@@ -21,6 +22,7 @@
             <td>{{product.rating}}</td>
             <td>{{product.price.price}}</td>
             <td>{{product.stock.stock}}</td>
+            <td><a [routerLink]="['/add-product/edit',product.productId]"><button>Edit</button></a></td>
         </tr>
     </tbody>
 </table>

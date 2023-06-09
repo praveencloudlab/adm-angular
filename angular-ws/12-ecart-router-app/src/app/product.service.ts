@@ -1,5 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { forkJoin } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +16,17 @@ export class ProductService {
     })
   }
 
+  // product and its associations
+   createProductAndAssociations(product:any,categoryId:number,brandId:number) {
+    const productRequest=this.http.post(this.apiUrl,product,this.httpOptions);
+    const categoryRequest=this.http.post(`this.apiUrl/category/${categoryId}`,categoryId,this.httpOptions);
+    const brandRequest=this.http.post(`this.apiUrl/brand/${brandId}`,brandId,this.httpOptions);
+    return forkJoin([productRequest,categoryRequest,brandRequest]);
+    
+  }
+
+
+
   //get all products
   getProducts() {
     return this.http.get(this.apiUrl);
@@ -21,6 +34,10 @@ export class ProductService {
 
   //get product by id
   getProduct(id:number) {
+    console.log(">>> service:: ID:: "+id);
+    console.log(`${this.apiUrl}/${id}`);
+    
+    
     return this.http.get(`${this.apiUrl}/${id}`);
   }
   //create product
@@ -43,6 +60,11 @@ export class ProductService {
   searchProductByCategory(category:string) {
     return this.http.get(`${this.apiUrl}?category=${category}`);
   }
+
+  searchCategoryByProductId(id:number) {
+    return this.http.get(`${this.apiUrl}/categories/product/${id}`);
+  }
+
   //search product by brand
   searchProductByBrand(brand:string) {
     return this.http.get(`${this.apiUrl}?brand=${brand}`);

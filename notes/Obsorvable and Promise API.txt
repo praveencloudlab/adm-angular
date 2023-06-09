@@ -1,0 +1,51 @@
+Obsorvable and Promise API
+==============================
+
+observable => stream based asynch technique
+promise => The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
+
+
+
+   server : server has data
+
+
+  promise api
+  ---------------
+  server : data 
+  client1 : request => ?
+  clienr2 : request => ?
+
+  observable
+  ---------
+  client1 : request => ?
+  client2 : request => ?
+
+
+
+  request-body
+  {
+    "productTitle": "Mac Book Air",
+    "description": "Apple Chip M2",
+    "keywords": "apr, mac book,mac, m2 chip, mac book air",
+    "rating": 0,
+    "stock": {
+        "stock": 18
+    },
+    "price": {
+        "price": "225000"
+    },
+    "categoryId": 45,
+    "brandId": 49
+}
+
+
+
+
+
+
+
+
+
+
+
+
