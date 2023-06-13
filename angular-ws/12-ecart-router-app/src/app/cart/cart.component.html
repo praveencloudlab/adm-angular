@@ -1,1 +1,21 @@
-<p>cart works!</p>
+
+<hr>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Item Price</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cartItem of cartItems">
+            <td>{{cartItem.productId}}</td>
+            <td>{{cartItem.qty}}</td>
+            <td>0</td>
+            
+            <td>0</td>
+        </tr>
+    </tbody>
+</table>

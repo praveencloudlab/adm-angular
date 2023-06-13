@@ -40,17 +40,25 @@ export class ProductService {
     
     return this.http.get(`${this.apiUrl}/${id}`);
   }
+
+  getProductPriceByProductId(productId:number) {
+    return this.http.get(`${this.apiUrl}/price/${productId}`);
+  }
   //create product
   createProduct(product:any) {
     return this.http.post(this.apiUrl, product,this.httpOptions);
   }
   //update product
   updateProduct(id:number, product:any) {
+    console.log(">>>>> product:");
+    console.log(product);
+    
+    
     return this.http.put(`${this.apiUrl}/${id}`, product,this.httpOptions);
   }
   //delete product
   deleteProduct(id:number) {
-    return this.http.delete(`${this.apiUrl}/${id}`,this.httpOptions);
+    return this.http.delete(`${this.apiUrl}/${id}`);
   }
   //search product
   searchProduct(search:string) {
@@ -87,20 +95,23 @@ export class ProductService {
     return this.http.get(`${this.apiUrl}/brands`);
   }
   // add to cart
-  addToCart(id:number) {
-    return this.http.post(`${this.apiUrl}/cart/${id}`,null);
+  addToCart(productId:number,quantity:number,user:number) {
+    return this.http.post(`${this.apiUrl}/cart/${productId}/${quantity}/${user}`,null);
   }
   // remove from cart
   removeFromCart(id:number) {
     return this.http.delete(`${this.apiUrl}/cart/${id}`);
   }
   //get cart
-  getCart() {
-    return this.http.get(`${this.apiUrl}/cart`);
+  getCart(userId:number) {
+    return this.http.get(`${this.apiUrl}/cart/${userId}`);
   }
   //get cart items
   getCartItems() {
     return this.http.get(`${this.apiUrl}/cart/items`);
+  }
+  getCartTotalCount(userId:number) {
+    return this.http.get(`${this.apiUrl}/cart/count/${userId}`);
   }
   //update cart
   updateCart(id:number) {

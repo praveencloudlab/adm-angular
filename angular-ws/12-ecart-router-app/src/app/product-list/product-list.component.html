@@ -22,7 +22,15 @@
             <td>{{product.rating}}</td>
             <td>{{product.price.price}}</td>
             <td>{{product.stock.stock}}</td>
-            <td><a [routerLink]="['/add-product/edit',product.productId]"><button>Edit</button></a></td>
+            <span *ngIf="user==='admin'">
+                <td><a [routerLink]="['/add-product/edit',product.productId]"><button>Edit</button></a></td>
+                <td><button (click)="deleteProduct(product.productId)">Remove</button></td>
+            </span>
+           
+            <span *ngIf="user!=='admin'">
+                <td><button>Add to cart</button></td>
+            </span>
+            
         </tr>
     </tbody>
 </table>

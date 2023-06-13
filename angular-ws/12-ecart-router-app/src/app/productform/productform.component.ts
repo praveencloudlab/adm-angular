@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ProductService } from '../product.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-productform',
@@ -36,19 +36,33 @@ export class ProductformComponent implements OnInit {
 
     // save product
 
-    this.prodService.createProduct(this.productForm.value).subscribe(res=>console.log(res));
+    //const productId = this.productForm.productId.value;
     
 
+    //if(this.productForm.value)
 
+    if(this.productId!=0){
+     const id=this.productForm.get('productId')?.value;
+      console.log(this.productForm.value);
+      console.log(id);
+      this.prodService.updateProduct(id,this.productForm.value).subscribe(result=>console.log(result));
+      
+    }
+
+    if(this.product==0)
+    this.prodService.createProduct(this.productForm.value).subscribe(res=>console.log(res));
+  
+    this.router.navigate(['/product-list'])
 
     
   }
 
   productId!:number;
-  constructor(private fb:FormBuilder,private prodService:ProductService,private route: ActivatedRoute) {
+  constructor(private fb:FormBuilder,private prodService:ProductService,private route: ActivatedRoute,private router:Router) {
     this.prodService.getCategories().subscribe(data =>this.categories = data);
     this.productForm = this.fb.group(
       {
+        productId:[0],
         productTitle:[''],
         description:[''],
         keywords:[''],
@@ -69,6 +83,12 @@ export class ProductformComponent implements OnInit {
 
   product={}
   category={}
+
+
+
+
+
+
   ngOnInit(): void {
     this.productId=Number(this.route.snapshot.paramMap.get('id'));
     console.log(">> ID: "+this.productId);
