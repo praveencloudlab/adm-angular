@@ -9,18 +9,41 @@ import { ProductService } from '../product.service';
   ]
 })
 export class CartComponent implements OnInit {
-  constructor(private productService:ProductService){}
-  cartItems:any;
-  itemPrice:any;
-
-  getPriceOfProduct(productId:number):any{
-    //return this.productService.getProductPriceByProductId(1).subscribe(data =>this.itemPrice = data);
-
+  constructor(private productService:ProductService){
+    
+   
+    
   }
+  cartItems:any
+  itemPrice:any;
+  product!:any;
+  total=0
+
+  getPriceOfProduct(productId:number){
+   
+    
+  }
+  
 
 
-  ngOnInit(): void {
-    this.productService.getCart(1).subscribe(data =>this.cartItems = data)
+  ngOnInit(): void {  
+    this.productService.getCart(1).subscribe(data =>{
+      this.cartItems=data;
+      this.cartItems.forEach((item: any) =>{
+        console.log("test");
+        
+       this.productService.getProduct(item.productId).subscribe((product:any)=>{
+         // this.product=product;
+         item.productTitle=product.productTitle;
+         item.price=product.price.price;
+        this.total=this.total+product.price.price*item.qty;
+          console.log(this.product);
+          
+       })
+      });
+    })
+
+   
   }
 
 }

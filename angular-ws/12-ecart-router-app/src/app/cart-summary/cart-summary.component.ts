@@ -11,7 +11,7 @@ export class CartSummaryComponent implements OnInit {
   constructor(private productService: ProductService){}
   totalItems: any=0
   ngOnInit(): void {
-    this.productService.getCartTotalCount(2).subscribe(data=>this.totalItems=data);
+    this.productService.getCartTotalCount(1).subscribe(data=>this.totalItems=data);
   }
 
 }
