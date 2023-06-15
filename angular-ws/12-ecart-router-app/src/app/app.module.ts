@@ -10,7 +10,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { HomeComponent } from './home/home.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CartSummaryComponent } from './cart-summary/cart-summary.component';
 
 @NgModule({
@@ -28,7 +28,8 @@ import { CartSummaryComponent } from './cart-summary/cart-summary.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
     
   ],
   providers: [],

@@ -122,9 +122,10 @@ export class ProductService {
     return this.http.delete(`${this.apiUrl}/cart`);
   }
   // implement checkout
-  checkout(id:number) {
-    return this.http.post(`${this.apiUrl}/checkout/${id}`,null);
+  checkout(item:any, userId:number) {
+    return this.http.post(`${this.apiUrl}/checkout/${userId}`,item);
   }
+
   //get checkout
   getCheckout() {
     return this.http.get(`${this.apiUrl}/checkout`);
