@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import {CartItem} from '../cart-item'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -11,10 +12,21 @@ import {CartItem} from '../cart-item'
 })
 export class CartComponent implements OnInit {
 
+
+removeItem(cartId: number) {
+  
+  this.productService.removeFromCart(cartId).subscribe(resp=>{
+    this._router.navigate(['/cart', Date.now()]);
+  });
+
+  
+}
+
 checkoutselectedItems() {
   const selectedItems = this.cartItems.filter((item,index) => this.selectedItems[index]);
   console.log(selectedItems);
   // code for sending the selected items to the server
+  this.productService.checkout
 
 }
   
@@ -46,7 +58,7 @@ checkoutselectedItems() {
           .reduce((total,item)=>total+(item.price*item.qty),0)
    }
 
-  constructor(private productService:ProductService){}
+  constructor(private productService:ProductService,private _router: Router){}
   itemPrice:any;
   product!:any;
   total=0

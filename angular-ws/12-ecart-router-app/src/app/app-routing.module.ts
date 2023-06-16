@@ -10,6 +10,7 @@ const routes: Routes = [
   { path:'',component:HomeComponent },
   { path:'product-list',component:ProductListComponent },
   { path:'cart',component:CartComponent },
+  { path:'cart/:reload', component:CartComponent },
   { path:'checkout',component:CheckoutComponent },
   { path:'add-product',component:ProductformComponent },
   { path:'add-product/edit/:id',component:ProductformComponent}

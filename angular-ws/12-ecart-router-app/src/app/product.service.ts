@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { forkJoin } from 'rxjs';
+import { BehaviorSubject, Observable, forkJoin, tap } from 'rxjs';
 
 
 @Injectable({
@@ -94,9 +94,13 @@ export class ProductService {
   getBrands() {
     return this.http.get(`${this.apiUrl}/brands`);
   }
+
+
+
   // add to cart
-  addToCart(productId:number,quantity:number,user:number) {
-    return this.http.post(`${this.apiUrl}/cart/${productId}/${quantity}/${user}`,null);
+  addToCart(productId:number,quantity:number,userId:number){
+    return this.http.post(`${this.apiUrl}/cart/${productId}/${quantity}/${userId}`,null);
+   
   }
   // remove from cart
   removeFromCart(id:number) {

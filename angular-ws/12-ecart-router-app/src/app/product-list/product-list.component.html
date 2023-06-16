@@ -28,7 +28,7 @@
             </span>
            
             <span *ngIf="user!=='admin'">
-                <td><button>Add to cart</button></td>
+                <td><button (click)="addToCart(product.productId)">Add to cart</button></td>
             </span>
             
         </tr>

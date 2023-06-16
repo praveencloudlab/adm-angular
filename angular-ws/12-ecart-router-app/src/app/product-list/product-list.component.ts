@@ -9,6 +9,12 @@ import { Router } from '@angular/router';
   ]
 })
 export class ProductListComponent implements OnInit {
+
+addToCart(productId: number) {
+  this.prodService.addToCart(productId,1,1).subscribe(resp=>console.log(resp));
+  
+  
+}
   constructor(private _router: Router, private prodService: ProductService) { }
   products:any=[];
   user=''

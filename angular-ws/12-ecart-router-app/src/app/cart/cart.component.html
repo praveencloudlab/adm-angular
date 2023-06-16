@@ -29,10 +29,12 @@
                     </select></td>
                     <td>{{cartItem.price}}</td>
                     <td>{{cartItem.qty * (cartItem?.price || 0)}}</td>
+                    <td><th><button (click)="removeItem(cartItem.cartId)">remove</button></th>
                 </tr>
                 <tr>
                     <th class="text-center" colspan="3">Total</th>
                     <th  class="">{{total}}</th>
+                    
                 </tr>
             </tbody>
         </table>
